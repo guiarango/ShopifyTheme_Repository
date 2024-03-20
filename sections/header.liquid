@@ -1,0 +1,30 @@
+
+{% assign main_menu_linklist = linklists[section.settings.menu] %}
+
+<div class="relative bg-white" x-data="{ mobileMenuOpen: false }">
+    {% render 'header-desktop' %}
+
+    {% render 'header-mobile' menuOptions:section.settings linklistMenu:main_menu_linklist%}
+    
+</div>
+
+{% schema %}
+    {
+        "name":"Header",
+        "settings": [
+            {
+                "type": "text",
+                "id":"mobile_menu_title",
+                "label":"Title",
+                "default": "Menu",
+                "info": "This is for the mobile menu window"
+            },
+            {
+                "type": "link_list",
+                "id": "menu",
+                "label": "Header Menu",
+                "default": "main-menu"
+            }
+        ]
+    }
+{% endschema %}
